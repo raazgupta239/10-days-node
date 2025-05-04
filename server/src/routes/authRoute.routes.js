@@ -1,9 +1,8 @@
 import express from 'express';
-import { loginInputValidate } from '../middlewares/inputValidate.middlware.js';
+import { loginInputValidate ,signinInputValidate} from '../middlewares/authValidation.middlewares.js';
+import { loginUser,signupUser } from '../controllers/authController.controllers.js';
 
 export const authRouter = express.Router();
 
-authRouter.post('/login',loginInputValidate,(req,res)=>{
-    return res.json("hello login");
-});
-// authRouter.post('/signin',signinInputValidate, authSigninController);
+authRouter.post('/login',loginInputValidate, loginUser);
+authRouter.post('/signin',signinInputValidate, signupUser);
