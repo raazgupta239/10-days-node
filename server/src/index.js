@@ -11,6 +11,11 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth",authRouter)
 
+app.get('/list',(req,res)=>{
+  console.log('hello lost');
+
+});
+
 app.listen(port, () => {
     console.log(`the server is running in the port ${port}`);
 
